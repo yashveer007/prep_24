@@ -10,6 +10,12 @@ public class LinearSearchOnString {
         System.out.println(seachElemenrt(str,'n'));
     }
 
+    /**
+     *
+     * @param str
+     * @param ch
+     * @return
+     */
     private static boolean seachElemenrt(String str, char ch){
 
         // checking str l
