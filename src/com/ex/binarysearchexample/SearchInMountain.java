@@ -38,7 +38,7 @@ public class SearchInMountain {
             return  mid;
         }
 
-        if( start == end && arr[mid] != element){
+        if( start >= end && arr[mid] != element){
             return -1;
         }
 
