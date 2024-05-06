@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         YoutubeChannel channel = new YoutubeChannel();
 
-        Subscriber subscriber = new Subscriber();
+        Subscriber subscriber = new Subscriber("Yashveer Singh");
         channel.suscribe(subscriber);
         channel.notifyChanges();
     }
