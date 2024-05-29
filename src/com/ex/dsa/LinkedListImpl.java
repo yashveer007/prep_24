@@ -1,13 +1,13 @@
 package com.ex.dsa;
 
-class LinkedList {
-    private Node head;
+class LinkedList<T> {
+    Node head;
     private int size;
     private class Node {
-        String str;
+        T str;
         Node next;
 
-        Node(String str) {
+        Node(T str) {
             this.str = str;
             this.next = null;
         }
@@ -18,7 +18,7 @@ class LinkedList {
      *
      * @param str
      */
-    public void addFirst(String str) {
+    public void addFirst(T str) {
         Node node = new Node(str);
         size++;
         if (head == null) {
@@ -34,7 +34,7 @@ class LinkedList {
      *
      * @param str
      */
-    public void addLast(String str) {
+    public void addLast(T str) {
         Node node = new Node(str);
         size++;
         if (head == null) {
@@ -78,9 +78,9 @@ class LinkedList {
      * Removing first element from the LinkedList
      * @return removed String
      */
-    public String removeFirst() {
+    public T removeFirst() {
         if (head == null) {
-            return "LinkedList is Empty!!";
+            return (T)"LinkedList is Empty!!";
         }
         size--;
         Node currentNode = head;
@@ -93,9 +93,9 @@ class LinkedList {
      *
      * @return
      */
-    public String removeLast() {
+    public T removeLast() {
         if (head == null) {
-            return "LinkedList is Empty!!";
+            return (T) "LinkedList is Empty!!";
         }
         size--;
         if (head.next == null) {
@@ -139,7 +139,7 @@ class LinkedList {
         tempNode.next = null;
     }
 
-    public void add(String str){
+    public void add(T str){
         addLast(str);
     }
 }
