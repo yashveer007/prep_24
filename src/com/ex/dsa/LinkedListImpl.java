@@ -1,8 +1,9 @@
 package com.ex.dsa;
 
 class LinkedList<T> {
-    Node head;
+    public Node head;
     private int size;
+
     private class Node {
         T str;
         Node next;
@@ -76,11 +77,12 @@ class LinkedList<T> {
 
     /**
      * Removing first element from the LinkedList
+     *
      * @return removed String
      */
     public T removeFirst() {
         if (head == null) {
-            return (T)"LinkedList is Empty!!";
+            return (T) "LinkedList is Empty!!";
         }
         size--;
         Node currentNode = head;
@@ -117,19 +119,20 @@ class LinkedList<T> {
 
     /**
      * Rotate By k places to the Right
+     *
      * @param k
      */
-    public void rotateByKPlace(int k){
+    public void rotateByKPlace(int k) {
 
-        if(head == null){
+        if (head == null) {
             System.out.println("LinkedList is Empty!!");
             return;
         }
         Node currentNode = head;
         Node tempNode = head;
-        while (currentNode.next != null){
+        while (currentNode.next != null) {
             currentNode = currentNode.next;
-            while(k>1){
+            while (k > 1) {
                 tempNode = tempNode.next;
                 k--;
             }
@@ -139,24 +142,68 @@ class LinkedList<T> {
         tempNode.next = null;
     }
 
-    public void add(T str){
+    public void add(T str) {
         addLast(str);
     }
+
+    public void deleteNthNode(int n) {
+        if (head.next == null) {
+            System.out.println("Empty linkedlist!!");
+            return;
+        }
+        Node currentNode = head;
+        int size = 0;
+        while (currentNode != null) {
+            size++;
+            currentNode = currentNode.next;
+        }
+        if (n > size) {
+            System.out.println("Length of the LinkedList size is less!!");
+            return;
+        }
+
+        if (n == size) {
+
+        }
+
+        int start = size - n;
+        int i = 0;
+        currentNode = head;
+        while (i < start) {
+            currentNode = currentNode.next;
+            i++;
+        }
+        currentNode.next = currentNode.next.next;
+    }
+
+    public Node middle(){
+        Node fast = head;
+        Node slow = head;
+
+        while(fast.next != null && fast.next.next !=null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        System.out.println(slow.str);
+        return slow;
+    }
+
+
 }
 
 public class LinkedListImpl {
     public static void main(String[] args) {
-        java.util.LinkedList<String> linkedList = new java.util.LinkedList<>();
         LinkedList list = new LinkedList();
         list.add("10");
         list.add("20");
         list.add("30");
         list.add("40");
         list.add("50");
-        list.add("60");
+        //list.add("60");
         list.print();
         System.out.println();
-        list.rotateByKPlace(4);
-        list.print();
+//        list.deleteNthNode(2);
+//        list.print();
+        list.middle();
     }
 }
