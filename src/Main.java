@@ -1,17 +1,30 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Ctrl+1 with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
         System.out.printf("Hello and welcome!");
+    }
 
-        // Press Alt+Shift+X or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Alt+Shift+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+Shift+B.
-            System.out.println("i = " + i);
+    /**
+     * Rain water problem
+     * @param height
+     * @return
+     */
+    public int trap(int[] height) {
+        int n = height.length;
+        int left[] = new int[n];
+        int right[] = new int[n];
+        left[0] = height[0];
+        for(int i = 1; i < n ;i++){
+            left[i] = Math.max(height[i], left[i-1]);
         }
+        right[n-1] = height[n-1];
+        for(int i = n-2 ; i>=0 ;i--){
+            right[i] = Math.max(right[i+1], height[i]);
+        }
+        int maxWater = 0;
+        for(int i =0; i <n ;i++){
+            int waterLevel = Math.min(left[i],right[i]);
+            maxWater =maxWater + (waterLevel - height[i]);
+        }
+        return maxWater;
     }
 }
