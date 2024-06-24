@@ -30,6 +30,11 @@ public class DoublyLinkedList {
         //Deleting tail Node
         head = deleteNodeFromTail(head);
         printDoublyLinkedList(head);
+
+        // Deleting kth node
+        head = deleteKthNode(head,2);
+        printDoublyLinkedList(head);
+
     }
 
     /**
@@ -49,6 +54,46 @@ public class DoublyLinkedList {
          temp.next = null;
          currentNode.prev=null;
          return head;
+    }
+
+    /**
+     * Deleting Kth node from a doubly Linked List
+     * @param head
+     * @param index
+     * @return
+     */
+    private static Node deleteKthNode(Node head, int index) {
+        int count =0;
+        Node currentNode = head;
+
+        while(currentNode != null){
+            count++;
+            if(count == index){
+                break;
+            }
+            currentNode = currentNode.next;
+        }
+        Node prev = currentNode.prev;
+        Node front = currentNode.next;
+
+        if(prev == null && front == null){
+            return null;
+        }else if(prev == null){
+            head = currentNode.next;
+            head.prev = null;
+            currentNode.next = null;
+            return head;
+        }else if(front == null){
+            prev.next = null;
+            currentNode.prev = null;
+            return head;
+        }else{
+            prev.next = front;
+            front.prev = prev;
+            currentNode.prev = null;
+            currentNode.next = null;
+            return head;
+        }
     }
 
     /**
