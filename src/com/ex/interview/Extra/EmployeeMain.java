@@ -34,5 +34,9 @@ public class EmployeeMain {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
         System.out.println(stringList);
+
+        employeeList.stream()
+                .sorted(Comparator.comparing(Employee::getAge,Comparator.reverseOrder()).thenComparing(Employee::getName,Comparator.reverseOrder()))
+                .forEach(System.out::println);
     }
 }
