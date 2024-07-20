@@ -1,4 +1,4 @@
-package com.ex.interview;
+package com.ex.interview.java8.programs;
 
 import java.util.Arrays;
 import java.util.List;
