@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 public class mainanagram {
     public static void main(String[] args) {
+        long start = System.currentTimeMillis();
         List<List<String>> collect = Arrays.asList("eat", "tea", "tan", "ate", "nat", "bat").stream()
                 .collect(Collectors.groupingBy(e -> {
                     char ch[] = e.toCharArray();
@@ -15,6 +16,7 @@ public class mainanagram {
                 }, Collectors.toList())).entrySet()
                 .stream()
                 .map(Map.Entry::getValue).collect(Collectors.toList());
-        System.out.println(collect);
+        long end = System.currentTimeMillis();
+        System.out.println(collect + "time: " + (end - start));
     }
 }
