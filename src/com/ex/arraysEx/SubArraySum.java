@@ -1,6 +1,6 @@
-package com.ex.interview.company;
+package com.ex.arraysEx;
 
-public class Main {
+public class SubArraySum {
     public static void main(String[] args) {
         int arr[] = {2,0,4,7,7,2};
 
