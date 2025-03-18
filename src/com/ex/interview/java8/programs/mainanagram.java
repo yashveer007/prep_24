@@ -17,6 +17,6 @@ public class mainanagram {
                 .stream()
                 .map(Map.Entry::getValue).collect(Collectors.toList());
         long end = System.currentTimeMillis();
-        System.out.println(collect + "time: " + (end - start));
+        System.out.println(collect + "time: " + (end - start ));
     }
 }
